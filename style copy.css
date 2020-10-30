@@ -1,0 +1,708 @@
+body {
+    margin: 0px;
+    font-family: Montserrat, Helvetica, sans-serif;
+  }
+ 
+  /* ----------Chat------------- */
+  .fixed {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+  }
+
+  /* --------Header Bar---------- */
+  .header {
+    overflow: hidden;
+    background-color: purple;
+  }
+  
+  .header p {
+    float: left;
+    text-align: center;
+    padding: 12px 12px 12px;
+    margin: -7px 8px;
+    text-decoration: none;
+    font-size: 12px;
+    color: white;
+    
+  }
+  
+  .header a {
+    float: left;
+    text-align: center;
+    padding: 13px 12px 12px;
+    margin: -7px 8px;
+    text-decoration: none;
+    font-size: 12px;
+    color: white;
+    
+  }
+
+  .header-right {
+    float: right;
+    display:inline;
+
+  }
+
+  .header-center {
+        list-style:none;
+        margin:1px;
+        padding-left:16%;
+        text-align: right;
+        font-size: 12px;
+        display: flex;
+        justify-content: center;
+    }
+  
+  #storeicon {
+    width: 16%;
+    padding-right: 2px;
+  }
+
+  #supporticon {
+    width: 20%;
+    padding-right: 2px;
+    display: inline;
+  }
+
+  #carticon {
+    width: 60%;
+    height: auto;
+    display: inline;
+  }
+
+/* -------------Navbar------------ */
+  .topnav {
+    overflow: hidden;
+    background-color: white;
+  }
+  
+  .topnav a {
+    float: left;
+    text-align: left;
+    padding: 5px 5px;
+    margin: 12px 0px 10px;
+    text-decoration: none;
+    font-size: 12px;
+    color: gray;
+  }
+
+  #logo {
+      width: 60%;
+      height: auto;
+      padding-left: 17px;
+
+  }
+  
+  .topnav-right {
+    float: right;
+    display:inline;
+  }
+  .topnav-right a {
+    padding-top: 5px;
+  }
+
+  .topnav-center {
+        list-style:none;
+        display: flex;
+        justify-content: center;
+    }
+  .topnav-center a{
+    padding-top: 9px;
+    padding-right:5%;
+  }
+
+/* -------Footer-------- */
+
+.footer h4 {
+  color: white;
+}
+.footer {
+  overflow: hidden;
+  background-color: purple;
+  padding-top: 4%;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 3px;
+  color: white;
+}
+
+.newsletter {
+    float: right;
+    max-width: 90%;
+  }
+
+.footer p {
+  font-size: 14px;
+  padding-top: 0.5%;
+}
+
+.copyright p {
+  font-size: 12px;
+  padding-top: 80px;
+  display: flex;
+  justify-content: center;
+}
+
+/* -------FONT STYLING-------*/
+h3 {
+  font-size: 24px;
+  color: purple;
+}
+
+h4 {
+  font-size: 22px;
+  color: purple;
+}
+/* -----------HOME Header Image ------------- */
+  #headerimage {
+    width: 100%;
+    height: auto;
+  }
+  
+
+/* ------------HOME Bestsellers------------ */
+#bestsellers {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+#featured {
+  display: flex;
+  justify-content: center;
+  width: 85%;
+  padding-left: 5%;
+  padding-right: 5%;
+  height: auto;
+}
+
+#featured a {
+  padding-left: 4%;
+  width:80%
+}
+
+/* ------------HOME Materials------------ */
+
+#materials {
+  display: flex;
+  justify-content: center;
+  padding-top: 12%;
+  padding-bottom: 1%;
+}
+
+.material-samples {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.material-images {
+  position: absolute;
+  top:0px;
+  left: 204px;
+}
+
+.label1 {
+  color: purple;
+  position: absolute;
+  bottom: 100px;
+  left: 295px;
+  font-size: 18pt;
+}
+
+.label2 {
+  color: purple;
+  position: absolute;
+  bottom: 100px;
+  left: 627px;
+  font-size: 18pt;
+}
+
+.label3 {
+  color: purple;
+  position: absolute;
+  bottom: 100px;
+  left: 1110px;
+  font-size: 18pt;
+}
+
+.firm {
+  position: absolute;
+  bottom: 70px;
+  left: 207px;
+}
+
+.des1 {
+  color: gray;
+  position: absolute;
+  bottom: 0px;
+  left: 220px;
+  line-height: 1.5;
+  min-width: 180px;
+}
+
+.des2 {
+  color: gray;
+  position: absolute;
+  bottom: 0px;
+  left: 620px;
+  line-height: 1.5;
+}
+
+.des3 {
+  color: gray;
+  position: absolute;
+  bottom: 0px;
+  left: 1020px;
+  line-height: 1.5;
+}
+
+
+/* ----------------HOME Reviews---------- */
+
+#customerreviews {
+  display: flex;
+  justify-content: center;
+  padding-top: 9%;
+}
+
+#customerreviews1 {
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+.stars {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 4%;
+}
+
+.review-group {
+  position: relative;
+  text-align: center;
+  color: white;
+  padding-bottom: 26%;
+}
+.review-container {
+  position: absolute;
+  left:190px;
+  width: 1150px;
+  height:auto;
+}
+.title1 {
+  color: purple;
+  position: absolute;
+  top: 15px;
+  left: 230px;
+  font-size: 15pt;
+  font-weight: 600;
+  text-align: left;
+}
+
+.title2 {
+  color: purple;
+  position: absolute;
+  top: 15px;
+  left: 627px;
+  font-size: 15pt;
+  font-weight: 600;
+  text-align: left;
+}
+
+.title3 {
+  color: purple;
+  position: absolute;
+  top: 15px;
+  left: 1026px;
+  font-size: 15pt;
+  font-weight: 600;
+  text-align: left;
+}
+
+.star1 {
+  position: absolute;
+  top: 95px;
+  left: 228px;
+}
+
+.star2 {
+  position: absolute;
+  top: 95px;
+  left: 627px;
+}
+
+.star3 {
+  position: absolute;
+  top: 95px;
+  left: 1026px;
+}
+
+.rev1 {
+  position: absolute;
+  top: 135px;
+  left: 229px;
+  color: gray;
+  text-align: left;
+  font-size: 11.5pt;
+  line-height: 1.6;
+}
+
+.rev2 {
+  position: absolute;
+  top: 135px;
+  left: 629px;
+  color: gray;
+  text-align: left;
+  font-size: 11.5pt;
+  line-height: 1.6;
+}
+
+.rev3 {
+  position: absolute;
+  top: 135px;
+  left: 1029px;
+  color: gray;
+  text-align: left;
+  font-size: 11.5pt;
+  line-height: 1.6;
+}
+
+.person1 {
+  position: absolute;
+  top: 294px;
+  left: 268px;
+  color:purple;
+  text-align: left;
+  font-size: 11.5pt;
+  font-weight: 600;
+}
+
+.person2 {
+  position: absolute;
+  top: 294px;
+  left: 661px;
+  color:purple;
+  text-align: left;
+  font-size: 11.5pt;
+  font-weight: 600;
+}
+
+.person3 {
+  position: absolute;
+  top: 294px;
+  left: 1058px;
+  color:purple;
+  text-align: left;
+  font-size: 11.5pt;
+  font-weight: 600;
+}
+
+#loadmore {
+    display: flex;
+    justify-content: center;
+    padding-top: 5%;
+    padding-bottom: 15%;
+}
+
+/*------------PRODUCT CATEGORY-----------*/
+.head-container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.bottom-left {
+  position: absolute;
+  bottom: 109px;
+  left: 100px;
+  text-align: left;
+  line-height: 1.7;
+}
+
+.top-left {
+  position: absolute;
+  top: 110px;
+  left: 100px;
+  font-size: 24pt;
+
+}
+.tophead img {
+  width: 100%;
+  height: auto;
+}
+
+.filters {
+  margin: 10px;
+  padding-left: 20px;
+}
+.prodimages {
+  display: flex;
+  justify-content: center;
+  padding-top: 2%;
+  padding-left: 2.5%
+}
+
+.shop {
+  display: flex;
+  justify-content: center;
+  padding-left: 6%;
+  padding-bottom: 30%;
+}
+
+.shop a {
+  padding-right: 3%;
+  padding-top: 20px;
+}
+
+/* --------PRODUCT DETAIL---------- */
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+  padding-top: 3%;
+}
+.column p {
+  color: purple;
+  font-size: 14px;
+}
+
+.column img, h3, p {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+  text-align: center;
+}
+
+#backarrow {
+  margin-left: 10px;
+}
+
+.reviewstars {
+  display:flex;
+  justify-content: center;
+  width: 60%
+  padding-left: 20%;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.colorswatches img {
+  padding-left: 4%;
+  width: 20%;
+  height:auto;
+  justify-content: center;
+}
+[type=radio] { 
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+[type=radio] + img {
+  cursor: pointer;
+}
+
+.colorselect {
+  display: flex;
+  justify-content: center;
+}
+
+.materialselect {
+  display: flex;
+  justify-content: center;
+}
+
+.sizeselect {
+  display: flex;
+  justify-content: center;
+}
+
+.quantityselect {
+  display: inline-block;
+  margin-left: 44%;
+}
+
+.colorselect [type=radio]:checked + img {
+  border: 2px solid purple;
+  border-radius: 100px;
+}
+input[type=radio] {
+  display: block;
+  margin: auto;
+}
+label {
+  display: inline-block;
+  font-size: 14px;
+  padding: 2%;
+  padding-top: 2%;
+  color: purple;
+  line-height: 3;
+}
+
+.materialselect label {
+  padding: 2%;
+}
+.sizeselect label {
+  padding: 6.3%;
+}
+.materialselect [type=radio]:checked + img {
+  border: 2px solid purple;
+  border-radius: 20px;
+}
+
+.sizeselect [type=radio]:checked + img {
+  border: 2px solid purple;
+  border-radius: 20px;
+}
+
+.colors {
+  padding-left: 14%;
+}
+.colors p {
+  display: inline;
+  text-align: center;
+  padding-right: 6%;
+}
+#after {
+  padding-right: 4%;
+}
+#rainy {
+  padding-right: 10%;
+}
+
+#denim {
+  padding-right: 8%;
+}
+
+/* -----------CHECKOUT------------- */
+
+.checkoutinfo {
+  padding-bottom: 40%;
+  margin-top: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+
+}
+
+.checkout-right {
+  float: right;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.imageA {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.imageB {
+  position: absolute;
+  top: 250px;
+  left: 40px;
+}
+
+#addcard {
+  padding-left: 1%;
+}
+
+/* ------------ORDER CONFIRMATION----------- */
+.orderhead {
+  background-image: url("Line\ Header\ \(1\).svg");
+  background-size: 100%;
+  padding-top: 6%;
+  padding-bottom: 6%;
+  padding-left:2%;
+  padding-right:2%;
+}
+
+.orderhead h3 {
+  display: flex;
+  justify-content: center;
+}
+
+.orderbody {
+  padding-top: 5%;
+  padding-bottom: 15%;
+  display: flex;
+  justify-content: center;
+}
+
+.continue {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30%;
+}
+
+/*------------------Account---------------*/
+
+.signinhead {
+  background-image: url("Line\ Header\ \(1\).svg");
+  background-size: 100%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  padding-left:2%;
+  padding-right:2%;
+}
+
+.signinhead h3 {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.signinhead p {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 14px;
+  color: gray;
+  line-height: 1.6;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  padding-top: 2%;
+  padding-bottom: 200px;
+}
+
+.container p {
+  float: right;
+  padding-top: 2%;
+  padding-bottom: 4%;
+  font-size: 15px;
+  text-decoration: underline;
+  color: purple;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  float: center;
+  padding: 14px;  
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  box-sizing: border-box; 
+  margin-top: 6px; 
+  margin-bottom: 16px; 
+  font-family: Montserrat;
+  font-size: 16px;
+}
+
+.enter {
+  padding-bottom: 2%;
+}
+
+
+
+\
