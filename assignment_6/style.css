@@ -335,7 +335,7 @@ h4 {
 
 .review-group {
   position: relative;
-  text-align: center;
+  text-align: left;
   color: white;
   padding-bottom: 26%;
 }
@@ -754,6 +754,12 @@ input::-webkit-inner-spin-button {
   border: 1px solid purple;
   border-radius: 10px;
 }
+
+.recommended {
+  padding-left: 10%;
+  padding-top: 4%;
+  padding-bottom: 5%;
+}
 /* -----------CHECKOUT------------- */
 
 .checkoutinfo {
@@ -870,8 +876,44 @@ input[type=text], select, textarea {
   font-size: 16px;
 }
 
+input[type=button], select, textarea {
+  width: 100%;
+  float: center;
+  padding: 14px;  
+  border: 2px solid purple; 
+  border-radius: 10px; 
+  box-sizing: border-box; 
+  margin-top: 6px; 
+  margin-bottom: 16px; 
+  font-family: Montserrat;
+  font-size: 16px;
+}
+
 .enter {
   padding-bottom: 2%;
 }
+
+.enterbutton {
+  background-color: #9932CC;
+  color: white;
+  font-family: Montserrat;
+  font-weight: 500;
+  border: 1px #9932CC;
+  border-radius: 10px;
+  padding: 2%;
+  width: 100%;
+}
+
+.createaccountbutton {
+  background-color: purple;
+  color: white;
+  font-family: Montserrat;
+  font-weight: 500;
+  border: 1px purple;
+  border-radius: 10px;
+  padding: 2%;
+  width: 100%;
+}
+
 
 
