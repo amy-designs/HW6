@@ -172,30 +172,33 @@ body {
   color: white;
 }
 .footer {
-  overflow: hidden;
+  display: grid;
+  grid-template-columns: 60% 40%;
   background-color: purple;
-  padding-top: 4%;
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-bottom: 3px;
-  color: white;
 }
 
-.newsletter {
-    float: right;
-    max-width: 90%;
+.footergrid p {
+  display: flex;
+  justify-content: left;
+  text-align: left;
+  color: white;
+  line-height: 1.8;
+}
+#resources {
+  padding-left: 8%;
+}
+
+#newsletter {
+    padding-top: 5%;
   }
 
-.footer p {
-  font-size: 14px;
-  padding-top: 0.5%;
-}
-
-.copyright p {
+.copyright {
   font-size: 12px;
-  padding-top: 80px;
+  padding-top: 40px;
   display: flex;
   justify-content: center;
+  background-color: purple;
+  color: white;
 }
 
 /* -------FONT STYLING-------*/

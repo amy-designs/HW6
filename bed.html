@@ -5,38 +5,58 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="style.css">
         <title>FLUFF STUFF</title>
+        <script type="text/javascript" src="script.js"></script>
     </head>
     
     <body>
         <!--Header Bar--> 
         <div class="header">
-            
-            <p><img src="LOCATION.svg" alt="location" id="storeicon">  Stores</p>
+            <div class="topbargrid">
+                <div class="topgrid">
+                    <p>
+                        <img src="LOCATION.svg" alt="location" id="storeicon">  Stores
+                    </p>
+                </div>
+                
+                <div class="topgrid">
+                    <p>Buy in bundles to save 20% or more on our latest pillows</p>
+                </div>
 
-            <div class="header-right">
-                <p><img src="record_voice_over_24px.svg" alt="support" id="supporticon">  Support</p>
-                <a href="signin.html">Account</a>
-            </div>
-           
-            <div class="header-center">
-                <p>Buy in bundles to save 20% or more on our latest pillows</p>
+                <div class="topgrid">
+                    <p>
+                        <img src="record_voice_over_24px.svg" alt="support" id="supporticon">  Support</p>
+                    <a href="signin.html">Account</a>
+                </div>
+            
+                
             </div>
         </div>
+
         <!--Top Navbar-->
         <div class="topnav">
-            <a href="index.html"><img src="FLUFF%20STUFF.svg" alt="FLUFF STUFF" id="logo"></a>
-            
-            <div class="topnav-right">
-                <a href="basket.html"><img src="Cart.svg" alt="cart" id="carticon"></a>
+
+            <div class="headergrid">
+                <div class="headgrid" id="logogrid">
+                    <a href="index.html">
+                        <img src="FLUFF%20STUFF.svg" alt="FLUFF STUFF" id="logo">
+                    </a>
+                </div>
+                
+                <div class="headgrid" id="categorygrid"> 
+                    <a href="couch.html">COUCH</a>
+                    <a href="bed.html">BED</a>
+                    <a href="floor.html">FLOOR POUF</a>
+                    <a href="round.html">ROUND</a>
+                </div>
+
+                <div class="headgrid">
+                    <a href="basket.html" class="cart-container">
+                        <img src="Cart.svg" alt="cart" class="carticon">
+                        <div id="cartCount" class="cartCount">0</div>
+                    </a>
+                </div>
             </div>
             
-            <div class="topnav-center"> 
-                <a href="couch.html">COUCH</a>
-                <a href="bed.html">BED</a>
-                <a href="floor.html">FLOOR POUF</a>
-                <a href="round.html">ROUND</a>
-            </div>
-           
         </div>
 
         <!--BED Header Image-->
@@ -75,20 +95,23 @@
  
         <!--Footer-->
         <div class="footer">
-            <h4>RESOURCES</h4>
-            <div class="newsletter">
+            <div class="footergrid" id="resources">
+                <h4>RESOURCES</h4>
+                <p>About Fluff Stuff
+                    <br>Contact Us
+                    <br>Shipping & Returns
+                    <br>Material & Sizing Guide
+                    <br>Quality Guarantee</p>
+            </div>
+            
+            <div class="footergrid" id="newsletter">
                 <img src="Newsletter.svg" alt="newsletter">
             </div>
-            <p>About Fluff Stuff</p>
-            <p>Contact Us</p>
-            <p>Shipping & Returns</p>
-            <p>Material & Sizing Guide</p>
-            <p>Quality Guarantee</p>
 
-            <div class="copyright">
-                <p>Fluff Stuff © 2020</p>
-            </div>
+        </div>
 
+        <div class="copyright">
+            <p>Fluff Stuff © 2020</p>
         </div>
     </body>
 </html>
