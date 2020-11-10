@@ -8,7 +8,7 @@
         <script type="text/javascript" src="script.js"></script>
     </head>
     
-    <body>
+    <body onunload="goToCheckoutPage()">
         <!--Header Bar--> 
         <div class="header">
             <div class="topbargrid">
@@ -114,7 +114,7 @@
   
   <div class="column" >
     <div class="title">
-        <h3>Square Couch Pillow</h3>
+        <h3 value="Square Couch Pillow">Square Couch Pillow</h3>
     </div>
     
     <img class="reviewstars" alt="review stars" src="Review%20Stars.svg">
@@ -193,6 +193,7 @@
         <button onclick="decrement()" class="minus">-</button>
         <input type=number id="quant" min=1 max=100>
         <button onclick="increment()" class="plus">+</button>
+        
         <div class="matguide">
             <h5 class="materialguide">MATERIAL GUIDE</h5>
         </div>
