@@ -172,7 +172,7 @@ body {
   color: white;
 }
 .footer {
-  margin-top: 5%;
+  margin-top: 15%;
   display: grid;
   grid-template-columns: 60% 40%;
   background-color: purple;
