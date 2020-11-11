@@ -382,6 +382,7 @@ h4 {
   color: white;
 }
 
+/* BED */
 .bedhead-container {
   background-image: url("Bed%20Header.jpg");
   color: white;
@@ -393,6 +394,53 @@ h4 {
   text-align: left;
   font-size: 17px;
   line-height: 1.6;
+}
+
+/* FLOOR */
+.floorhead-container {
+  background-image: url("Floor%20Header.jpg");
+  color: white;
+  padding: 6%;
+}
+
+.floorhead-container p {
+  padding-top: 2%;
+  text-align: left;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+/* COUCH */
+.couchhead-container {
+  background-image: url("Floor%20Header.jpg");
+  color: white;
+  padding: 6%;
+}
+
+.couchhead-container p {
+  padding-top: 2%;
+  text-align: left;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+/* ROUND */
+.roundhead-container {
+  background-image: url("Floor%20Header.jpg");
+  color: white;
+  padding: 6%;
+}
+
+.roundhead-container p {
+  padding-top: 2%;
+  text-align: left;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+
+.filterlabel {
+  padding-left: 9%;
 }
 
 /* .bottom-left {
