@@ -172,6 +172,7 @@ body {
   color: white;
 }
 .footer {
+  margin-top: 5%;
   display: grid;
   grid-template-columns: 60% 40%;
   background-color: purple;
@@ -743,14 +744,26 @@ input::-webkit-inner-spin-button {
   border-radius: 10px;
 }
 
-#listOfProducts {
+#empty {
+  display: flex;
+  justify-content: center;
+  color: gray;
+  padding:5%;
+  padding-bottom: 30%;
+  margin-left: 15%;
+  margin-right: 15%;
+  font-style: italic;
+  border: 2px solid #f3f3f3;
+  border-radius: 20px;
+}
+
+#cartcontainer {
   display: flex;
   margin-left: 15%;
   margin-right: 15%;
-  background-color: #f5f5f5;
-  border: 1px solid #f5f5f5;
-  border-radius: 10px;
+  margin-bottom: 1%;
 }
+
 
 #delete {
   flex: 10%;

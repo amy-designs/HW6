@@ -31,19 +31,25 @@ class Product {
 	}
 }
 
-
+//Load localStorage data onto basket page
 function checkoutPageLoaded() {
-	//Now that the checkout page is loaded, lets grab that localStorage adta
+
 	productNum = 0
 	var loadedProductArr = localStorage.getItem('order');
 	newProductArr = JSON.parse(loadedProductArr);
-	//Now newProductArr is the equivalent of the productArr we stored on the index.html page 
 	
 	console.log('we are on checkout page');
 	console.log(newProductArr);
+	var basketbody = document.getElementById('basketbody');
+	var pinkprod = document.getElementById('pinkprod');
+	var blueprod = document.getElementById('blueprod');
+	var navyprod = document.getElementById('navyprod');
+	var whiteprod = document.getElementById('whiteprod');
 	
-	var listOfProducts = document.getElementById('listOfProducts');
-	
+	if (newProductArr.length == 0) {
+		basketbody.innerHTML += '<div id="empty"><p>Your basket is empty</p></div>';
+	}
+//Create selected product listings on cart page
 	for(var i = 0; i < newProductArr.length; i++) {
 	   var pillow = newProductArr[i];
 	   var pillowName = 'Square Couch Pillow';
@@ -53,40 +59,60 @@ function checkoutPageLoaded() {
 	   var pillowQuant = pillow.quantity;
 
 	   if (pillowColor == "After School Special") {
-		listOfProducts.innerHTML += '<div class="cartcolumn" id="cartimg"><img src="pinkprod.png">';
-		listOfProducts.innerHTML += '<div class="cartcolumn" id="prodname">' + pillowName + '</div>';
-		listOfProducts.innerHTML += '<div class="cartcolumn" id="selections">' + pillowColor 
+		var container = document.createElement("div");
+		container.id="cartcontainer";
+		
+		container.innerHTML += '<div class="cartcolumn" id="cartimg"><img src="pinkprod.png"></div>';
+		container.innerHTML += '<div class="cartcolumn" id="prodname">' + pillowName + '</div>';
+		container.innerHTML += '<div class="cartcolumn" id="selections">' + pillowColor 
 		+ '<br>Size ' + pillowSize + '<br>' + pillowMaterial + '<br>QTY: ' + pillowQuant + '</div>';
-		listOfProducts.innerHTML += '<div class="cartcolumn" id="delete" onclick="deleteProduct(' + i + ')"> X </div>';
+		container.innerHTML += '<div class="cartcolumn" id="delete" onclick="deleteProduct(' + i + ')"> X </div>';
+		container.innerHTML += '</div>'
+		basketbody.appendChild(container);
 		productNum = productNum + pillowQuant;
-		}
-		else if (pillowColor == "Rainy Day") {
-		listOfProducts.innerHTML += '<div class="cartcolumn" id="cartimg"><img src="blueprod.png">';
-		listOfProducts.innerHTML += '<div class="cartcolumn" id="prodname">' + pillowName  + '</div>';
-		listOfProducts.innerHTML += '<div class="cartcolumn" id="selections">' + pillowColor 
+	}
+	else if (pillowColor == "Rainy Day") {
+		var container = document.createElement("div");
+		container.id="cartcontainer";
+		container.innerHTML += '<div class="cartcontainer>'
+		container.innerHTML += '<div class="cartcolumn" id="cartimg"><img src="blueprod.png"></div>';
+		container.innerHTML += '<div class="cartcolumn" id="prodname">' + pillowName  + '</div>';
+		container.innerHTML += '<div class="cartcolumn" id="selections">' + pillowColor 
 		+ '<br>Size ' + pillowSize + '<br>' + pillowMaterial + '<br>QTY: ' + pillowQuant + '</div>';
-		listOfProducts.innerHTML += '<div class="cartcolumn" id="delete" onclick="deleteProduct(' + i + ')"> X </div>';
+		container.innerHTML += '<div class="cartcolumn" id="delete" onclick="deleteProduct(' + i + ')"> X </div>';
+		container.innerHTML += '</div>'
+		basketbody.appendChild(container);
 		productNum = productNum + pillowQuant;
-		}
-		else if (pillowColor == "Cozy Denim") {
-		listOfProducts.innerHTML += '<div class="cartcolumn" id="cartimg"><img src="whiteprod.jpg">';
-		listOfProducts.innerHTML += '<div class="cartcolumn" id="prodname">' + pillowName +  '</div>';
-		listOfProducts.innerHTML += '<div class="cartcolumn" id="selections">' + pillowColor 
+	}
+	else if (pillowColor == "Cozy Denim") {
+		var container = document.createElement("div");
+		container.id="cartcontainer";
+		container.innerHTML += '<div class="cartcontainer>'
+		container.innerHTML += '<div class="cartcolumn" id="cartimg"><img src="navyprod.jpg"></div>';
+		container.innerHTML += '<div class="cartcolumn" id="prodname">' + pillowName +  '</div>';
+		container.innerHTML += '<div class="cartcolumn" id="selections">' + pillowColor 
 		+ '<br>Size ' + pillowSize + '<br>' + pillowMaterial + '<br>QTY: ' + pillowQuant + '</div>';
-		listOfProducts.innerHTML += '<div class="cartcolumn" id="delete" onclick="deleteProduct(' + i + ')"> X </div>';
+		container.innerHTML += '<div class="cartcolumn" id="delete" onclick="deleteProduct(' + i + ')"> X </div>';
+		container.innerHTML += '</div>'
+		basketbody.appendChild(container);
 		productNum = productNum + pillowQuant;
-		}
-		else if (pillowColor == "Morning Haze") {
-		listOfProducts.innerHTML += '<div class="cartcolumn" id="cartimg"><img src="navyprod.jpg">';
-		listOfProducts.innerHTML += '<div class="cartcolumn" id="prodname">' + pillowName +  '</div>';
-		listOfProducts.innerHTML += '<div class="cartcolumn" id="selections">' + pillowColor 
+	}
+	else if (pillowColor == "Morning Haze") {
+		var container = document.createElement("div");
+		container.id="cartcontainer";
+		container.innerHTML += '<div class="cartcontainer>'
+		container.innerHTML += '<div class="cartcolumn" id="cartimg"><img src="whiteprod.jpg"></div>';
+		container.innerHTML += '<div class="cartcolumn" id="prodname">' + pillowName +  '</div>';
+		container.innerHTML += '<div class="cartcolumn" id="selections">' + pillowColor 
 		+ '<br>Size ' + pillowSize + '<br>' + pillowMaterial + '<br>QTY: ' + pillowQuant + '</div>';
-		listOfProducts.innerHTML += '<div class="cartcolumn" id="delete" onclick="deleteProduct(' + i + ')"> X </div>';
+		container.innerHTML += '<div class="cartcolumn" id="delete" onclick="deleteProduct(' + i + ')"> X </div>';
+		container.innerHTML += '</div>'
+		basketbody.appendChild(container);
 		productNum = productNum + pillowQuant;
 	   }
 	   
 	}
-
+	//Update quantity of selected products
 	updateCartNumber(productNum);
 }
 
@@ -97,41 +123,73 @@ function saveEdits() {
 
 function deleteProduct(i) {
 	newProductArr.splice(i,1)
-	listOfProducts.innerHTML = ''
+	var basketbody = document.getElementById('basketbody');
+	
+	basketbody.innerHTML = ''
+
 	productNum = 0;
 	
+	
+	
 	for(var i = 0; i < newProductArr.length; i++) {
-	   var pillow = newProductArr[i]
-	   if (pillow) {
-			var pillowName = 'Square Couch Pillow'
-			var pillowColor = pillow.color
-			var pillowMaterial = pillow.material
-			var pillowSize = pillow.size
-			var pillowQuant = pillow.quantity
-		   	if (pillowColor == "After School Special") {
-			listOfProducts.innerHTML += '<div class="pinkpill"><img src="pinkprod.png">' + pillowName + ' Color: ' + pillowColor 
-			+ ' Size: ' + pillowSize + ' Material: ' + pillowMaterial + 'QTY: ' + pillowQuant + '</div>';
-			listOfProducts.innerHTML += '<span class="delete" onclick="deleteProduct(' + i + ')"> X </span>';
-			productNum = productNum + pillowQuant;
-			}
-			else if (pillowColor == "Rainy Day") {
-			listOfProducts.innerHTML += '<div class="bluepill"><img src="blueprod.png">' + pillowName + ' Color: ' + pillowColor 
-			+ ' Size: ' + pillowSize + ' Material: ' + pillowMaterial + 'QTY: ' + pillowQuant + '</div>';
-			listOfProducts.innerHTML += '<span class="delete" onclick="deleteProduct(' + i + ')"> X </span>';
-			productNum = productNum + pillowQuant;
-			}
-			else if (pillowColor == "Cozy Denim") {
-			listOfProducts.innerHTML += '<div class="navypill"><img src="whiteprod.jpg">' + pillowName + ' Color: ' + pillowColor 
-			+ ' Size: ' + pillowSize + ' Material: ' + pillowMaterial + 'QTY: ' + pillowQuant + '</div>';
-			listOfProducts.innerHTML += '<span class="delete" onclick="deleteProduct(' + i + ')"> X </span>';
-			productNum = productNum + pillowQuant;
-			}
-			else if (pillowColor == "Morning Haze") {
-			listOfProducts.innerHTML += '<div class="navypill"><img src="navyprod.jpg">' + pillowName + ' Color: ' + pillowColor 
-			+ ' Size: ' + pillowSize + ' Material: ' + pillowMaterial + 'QTY: ' + pillowQuant + '</div>';
-			listOfProducts.innerHTML += '<span class="delete" onclick="deleteProduct(' + i + ')"> X </span>';
-			productNum = productNum + pillowQuant;
-		   }
+		var pillow = newProductArr[i];
+		var pillowName = 'Square Couch Pillow';
+		var pillowColor = pillow.color;
+		var pillowMaterial = pillow.material;
+		var pillowSize = pillow.size;
+		var pillowQuant = pillow.quantity;
+ 
+		if (pillowColor == "After School Special") {
+			 var container = document.createElement("div");
+			 container.id="cartcontainer";
+			 
+			 container.innerHTML += '<div class="cartcolumn" id="cartimg"><img src="pinkprod.png"></div>';
+			 container.innerHTML += '<div class="cartcolumn" id="prodname">' + pillowName + '</div>';
+			 container.innerHTML += '<div class="cartcolumn" id="selections">' + pillowColor 
+			 + '<br>Size ' + pillowSize + '<br>' + pillowMaterial + '<br>QTY: ' + pillowQuant + '</div>';
+			 container.innerHTML += '<div class="cartcolumn" id="delete" onclick="deleteProduct(' + i + ')"> X </div>';
+			 container.innerHTML += '</div>'
+			 basketbody.appendChild(container);
+			 productNum = productNum + pillowQuant;
+		 }
+		 else if (pillowColor == "Rainy Day") {
+			 var container = document.createElement("div");
+			 container.id="cartcontainer";
+			 container.innerHTML += '<div class="cartcontainer>'
+			 container.innerHTML += '<div class="cartcolumn" id="cartimg"><img src="blueprod.png"></div>';
+			 container.innerHTML += '<div class="cartcolumn" id="prodname">' + pillowName  + '</div>';
+			 container.innerHTML += '<div class="cartcolumn" id="selections">' + pillowColor 
+			 + '<br>Size ' + pillowSize + '<br>' + pillowMaterial + '<br>QTY: ' + pillowQuant + '</div>';
+			 container.innerHTML += '<div class="cartcolumn" id="delete" onclick="deleteProduct(' + i + ')"> X </div>';
+			 container.innerHTML += '</div>'
+			 basketbody.appendChild(container);
+			 productNum = productNum + pillowQuant;
+		 }
+		 else if (pillowColor == "Cozy Denim") {
+			 var container = document.createElement("div");
+			 container.id="cartcontainer";
+			 container.innerHTML += '<div class="cartcontainer>'
+			 container.innerHTML += '<div class="cartcolumn" id="cartimg"><img src="navyprod.jpg"></div>';
+			 container.innerHTML += '<div class="cartcolumn" id="prodname">' + pillowName +  '</div>';
+			 container.innerHTML += '<div class="cartcolumn" id="selections">' + pillowColor 
+			 + '<br>Size ' + pillowSize + '<br>' + pillowMaterial + '<br>QTY: ' + pillowQuant + '</div>';
+			 container.innerHTML += '<div class="cartcolumn" id="delete" onclick="deleteProduct(' + i + ')"> X </div>';
+			 container.innerHTML += '</div>'
+			 basketbody.appendChild(container);
+			 productNum = productNum + pillowQuant;
+		 }
+		 else if (pillowColor == "Morning Haze") {
+			 var container = document.createElement("div");
+			 container.id="cartcontainer";
+			 container.innerHTML += '<div class="cartcontainer>'
+			 container.innerHTML += '<div class="cartcolumn" id="cartimg"><img src="whiteprod.jpg"></div>';
+			 container.innerHTML += '<div class="cartcolumn" id="prodname">' + pillowName +  '</div>';
+			 container.innerHTML += '<div class="cartcolumn" id="selections">' + pillowColor 
+			 + '<br>Size ' + pillowSize + '<br>' + pillowMaterial + '<br>QTY: ' + pillowQuant + '</div>';
+			 container.innerHTML += '<div class="cartcolumn" id="delete" onclick="deleteProduct(' + i + ')"> X </div>';
+			 container.innerHTML += '</div>'
+			 basketbody.appendChild(container);
+			 productNum = productNum + pillowQuant;
 	   }
 	   
 	   
@@ -181,7 +239,6 @@ function addToCart() {
 		productNum = productNum + quantCount;
 		updateCartNumber(productNum);
 	} else {
-		//alert('Please make sure all fields are selected')
 		var errorMessage = 'Please select ';
 		var errorArr=[];
 		
@@ -221,14 +278,6 @@ function updateCartNumber(num) {
 
 
 function goToCheckoutPage() {
-	//Store our existing data structure of products into localStorage
-	//Then navigate to the checkout page
-	
-	//Set the product order in local storage
-	//The 'productArr' variable is an array of product objects we made above
 	localStorage.setItem('order', JSON.stringify(productArr))
-	
 	window.location.replace('basket.html')
-	//If this does not work for github pages or w/e try searching for
-	//vanilla javascript navigate to HTML page
 }
