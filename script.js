@@ -24,57 +24,70 @@ var productNum = 0;
 
 class Product {
 	constructor(color, material, size, quantity) {
-		this.color = color
-        this.material = material
-		this.size=size
-		this.quantity=quantity
+		this.color = color;
+        this.material = material;
+		this.size=size;
+		this.quantity=quantity;
 	}
 }
 
 
 function checkoutPageLoaded() {
 	//Now that the checkout page is loaded, lets grab that localStorage adta
-	
-	var loadedProductArr = localStorage.getItem('order')
-	newProductArr = JSON.parse(loadedProductArr)
+	productNum = 0
+	var loadedProductArr = localStorage.getItem('order');
+	newProductArr = JSON.parse(loadedProductArr);
 	//Now newProductArr is the equivalent of the productArr we stored on the index.html page 
 	
-	console.log('we are on checkout page')
-	console.log(newProductArr)
+	console.log('we are on checkout page');
+	console.log(newProductArr);
 	
-	var listOfProducts = document.getElementById('listOfProducts')
+	var listOfProducts = document.getElementById('listOfProducts');
 	
 	for(var i = 0; i < newProductArr.length; i++) {
-	   var pillow = newProductArr[i]
-	   var pillowName = 'Square Couch Pillow'
-	   var pillowColor = pillow.color
-	   var pillowMaterial = pillow.material
-	   var pillowSize = pillow.size
-	   var pillowQuant = pillow.quantity
+	   var pillow = newProductArr[i];
+	   var pillowName = 'Square Couch Pillow';
+	   var pillowColor = pillow.color;
+	   var pillowMaterial = pillow.material;
+	   var pillowSize = pillow.size;
+	   var pillowQuant = pillow.quantity;
 
 	   if (pillowColor == "After School Special") {
-		listOfProducts.innerHTML += '<div class="pinkpill"><img src="Couch%20Detail.jpg"> ' + pillowName + ' Color: ' + pillowColor 
-		+ ' Size: ' + pillowSize + ' Material: ' + pillowMaterial + ' QTY: ' + pillowQuant + '</div>'
-		listOfProducts.innerHTML += '<span onclick="deleteProduct(' + i + '); saveEdits();"> X </span>'
+		listOfProducts.innerHTML += '<div class="cartcolumn" id="cartimg"><img src="pinkprod.png">';
+		listOfProducts.innerHTML += '<div class="cartcolumn" id="prodname">' + pillowName + '</div>';
+		listOfProducts.innerHTML += '<div class="cartcolumn" id="selections">' + pillowColor 
+		+ '<br>Size ' + pillowSize + '<br>' + pillowMaterial + '<br>QTY: ' + pillowQuant + '</div>';
+		listOfProducts.innerHTML += '<div class="cartcolumn" id="delete" onclick="deleteProduct(' + i + ')"> X </div>';
+		productNum = productNum + pillowQuant;
+		}
+		else if (pillowColor == "Rainy Day") {
+		listOfProducts.innerHTML += '<div class="cartcolumn" id="cartimg"><img src="blueprod.png">';
+		listOfProducts.innerHTML += '<div class="cartcolumn" id="prodname">' + pillowName  + '</div>';
+		listOfProducts.innerHTML += '<div class="cartcolumn" id="selections">' + pillowColor 
+		+ '<br>Size ' + pillowSize + '<br>' + pillowMaterial + '<br>QTY: ' + pillowQuant + '</div>';
+		listOfProducts.innerHTML += '<div class="cartcolumn" id="delete" onclick="deleteProduct(' + i + ')"> X </div>';
+		productNum = productNum + pillowQuant;
+		}
+		else if (pillowColor == "Cozy Denim") {
+		listOfProducts.innerHTML += '<div class="cartcolumn" id="cartimg"><img src="whiteprod.jpg">';
+		listOfProducts.innerHTML += '<div class="cartcolumn" id="prodname">' + pillowName +  '</div>';
+		listOfProducts.innerHTML += '<div class="cartcolumn" id="selections">' + pillowColor 
+		+ '<br>Size ' + pillowSize + '<br>' + pillowMaterial + '<br>QTY: ' + pillowQuant + '</div>';
+		listOfProducts.innerHTML += '<div class="cartcolumn" id="delete" onclick="deleteProduct(' + i + ')"> X </div>';
+		productNum = productNum + pillowQuant;
+		}
+		else if (pillowColor == "Morning Haze") {
+		listOfProducts.innerHTML += '<div class="cartcolumn" id="cartimg"><img src="navyprod.jpg">';
+		listOfProducts.innerHTML += '<div class="cartcolumn" id="prodname">' + pillowName +  '</div>';
+		listOfProducts.innerHTML += '<div class="cartcolumn" id="selections">' + pillowColor 
+		+ '<br>Size ' + pillowSize + '<br>' + pillowMaterial + '<br>QTY: ' + pillowQuant + '</div>';
+		listOfProducts.innerHTML += '<div class="cartcolumn" id="delete" onclick="deleteProduct(' + i + ')"> X </div>';
+		productNum = productNum + pillowQuant;
 	   }
-	   else if (pillowColor == "Rainy Day") {
-		listOfProducts.innerHTML += '<div class="bluepill"><img src="Pillow-blue.jpg">' + pillowName + ' Color: ' + pillowColor 
-		+ ' Size: ' + pillowSize + ' Material: ' + pillowMaterial + ' QTY: ' + pillowQuant + '</div>'
-		listOfProducts.innerHTML += '<span onclick="deleteProduct(' + i + '); saveEdits();"> X </span>'
-	   }
-	   else if (pillowColor == "Cozy Denim") {
-		listOfProducts.innerHTML += '<div class="navypill"><img src="Pillow-white.jpg"> ' + pillowName + ' Color: ' + pillowColor 
-		+ ' Size: ' + pillowSize + ' Material: ' + pillowMaterial + ' QTY: ' + pillowQuant + '</div>'
-		listOfProducts.innerHTML += '<span onclick="deleteProduct(' + i + '); saveEdits();"> X </span>'
-	   }
-	   else if (pillowColor == "Morning Haze") {
-		listOfProducts.innerHTML += '<div class="navypill"><img src="Pillow-navy.jpg"> ' + pillowName + ' Color: ' + pillowColor 
-		+ ' Size: ' + pillowSize + ' Material: ' + pillowMaterial + 'QTY: ' + pillowQuant + '</div>'
-		listOfProducts.innerHTML += '<span onclick="deleteProduct(' + i + '); saveEdits();"> X </span>'
-	   }
-	   
 	   
 	}
+
+	updateCartNumber(productNum);
 }
 
 
@@ -85,6 +98,7 @@ function saveEdits() {
 function deleteProduct(i) {
 	newProductArr.splice(i,1)
 	listOfProducts.innerHTML = ''
+	productNum = 0;
 	
 	for(var i = 0; i < newProductArr.length; i++) {
 	   var pillow = newProductArr[i]
@@ -95,28 +109,34 @@ function deleteProduct(i) {
 			var pillowSize = pillow.size
 			var pillowQuant = pillow.quantity
 		   	if (pillowColor == "After School Special") {
-			listOfProducts.innerHTML += '<div class="pinkpill"><img src="Couch%20Detail.jpg">' + pillowName + ' Color: ' + pillowColor 
-			+ ' Size: ' + pillowSize + ' Material: ' + pillowMaterial + 'QTY: ' + pillowQuant + '</div>'
-			listOfProducts.innerHTML += '<span class="delete" onclick="deleteProduct(' + i + ')"> X </span>'
+			listOfProducts.innerHTML += '<div class="pinkpill"><img src="pinkprod.png">' + pillowName + ' Color: ' + pillowColor 
+			+ ' Size: ' + pillowSize + ' Material: ' + pillowMaterial + 'QTY: ' + pillowQuant + '</div>';
+			listOfProducts.innerHTML += '<span class="delete" onclick="deleteProduct(' + i + ')"> X </span>';
+			productNum = productNum + pillowQuant;
 			}
 			else if (pillowColor == "Rainy Day") {
-			listOfProducts.innerHTML += '<div class="bluepill"><img src="Pillow-blue.jpg">' + pillowName + ' Color: ' + pillowColor 
-			+ ' Size: ' + pillowSize + ' Material: ' + pillowMaterial + 'QTY: ' + pillowQuant + '</div>'
-			listOfProducts.innerHTML += '<span class="delete" onclick="deleteProduct(' + i + ')"> X </span>'
+			listOfProducts.innerHTML += '<div class="bluepill"><img src="blueprod.png">' + pillowName + ' Color: ' + pillowColor 
+			+ ' Size: ' + pillowSize + ' Material: ' + pillowMaterial + 'QTY: ' + pillowQuant + '</div>';
+			listOfProducts.innerHTML += '<span class="delete" onclick="deleteProduct(' + i + ')"> X </span>';
+			productNum = productNum + pillowQuant;
 			}
 			else if (pillowColor == "Cozy Denim") {
-			listOfProducts.innerHTML += '<div class="navypill"><img src="Pillow-white.jpg">' + pillowName + ' Color: ' + pillowColor 
-			+ ' Size: ' + pillowSize + ' Material: ' + pillowMaterial + 'QTY: ' + pillowQuant + '</div>'
-			listOfProducts.innerHTML += '<span class="delete" onclick="deleteProduct(' + i + ')"> X </span>'
+			listOfProducts.innerHTML += '<div class="navypill"><img src="whiteprod.jpg">' + pillowName + ' Color: ' + pillowColor 
+			+ ' Size: ' + pillowSize + ' Material: ' + pillowMaterial + 'QTY: ' + pillowQuant + '</div>';
+			listOfProducts.innerHTML += '<span class="delete" onclick="deleteProduct(' + i + ')"> X </span>';
+			productNum = productNum + pillowQuant;
 			}
 			else if (pillowColor == "Morning Haze") {
-			listOfProducts.innerHTML += '<div class="navypill"><img src="Pillow-navy.jpg">' + pillowName + ' Color: ' + pillowColor 
-			+ ' Size: ' + pillowSize + ' Material: ' + pillowMaterial + 'QTY: ' + pillowQuant + '</div>'
-			listOfProducts.innerHTML += '<span class="delete" onclick="deleteProduct(' + i + ')"> X </span>'
+			listOfProducts.innerHTML += '<div class="navypill"><img src="navyprod.jpg">' + pillowName + ' Color: ' + pillowColor 
+			+ ' Size: ' + pillowSize + ' Material: ' + pillowMaterial + 'QTY: ' + pillowQuant + '</div>';
+			listOfProducts.innerHTML += '<span class="delete" onclick="deleteProduct(' + i + ')"> X </span>';
+			productNum = productNum + pillowQuant;
 		   }
 	   }
 	   
+	   
 	}
+	updateCartNumber(productNum);
 }
 	
 
@@ -147,23 +167,58 @@ function addToCart() {
 			selectedSize = size[i].value;
 		}
 	 }
-
 	var quantCount = parseInt(quant);
-	productNum = productNum + quantCount;
+	if (isNaN(quantCount)) {
+	}
+	
+	if (selectedColor != 'blank' && selectedMaterial != 'blank' && selectedSize != 'blank' && quantCount > 0) {
 		var pillow = new Product(selectedColor, selectedMaterial, selectedSize, quantCount);
 		productArr.push(pillow);
 	
-	console.log(productArr)
-	
-	
-    updateCartNumber(productNum)
+		console.log(productArr);
+		
+		localStorage.setItem('order', JSON.stringify(productArr));
+		productNum = productNum + quantCount;
+		updateCartNumber(productNum);
+	} else {
+		//alert('Please make sure all fields are selected')
+		var errorMessage = 'Please select ';
+		var errorArr=[];
+		
+		if (selectedColor == 'blank') {
+			var addErr = errorArr.push('color');
 
+		} 
+		if (selectedMaterial == 'blank') {
+			var addErr = errorArr.push('material');
+
+		} 
+		if (selectedSize == 'blank') {
+			var addErr = errorArr.push('size');
+
+		} 
+		
+		if (!(quantCount >= 1)) {
+			var addErr = errorArr.push('quantity');
+		}
+
+		for(var i = 0; i < errorArr.length; i++) {
+			if (i < (errorArr.length - 1)) {
+				errorMessage += errorArr[i] + ', ';
+			} else {
+				errorMessage += errorArr[i];
+			}
+		}
+		alert(errorMessage)
+	}
+		
 };
 
 function updateCartNumber(num) {
 	var cartCount = document.getElementById("cartCount");
 	cartCount.innerHTML = num;
 };
+
 
 function goToCheckoutPage() {
 	//Store our existing data structure of products into localStorage

@@ -8,7 +8,7 @@
         <script type="text/javascript" src="script.js"></script>
     </head>
     
-    <body>
+    <body onunload="goToCheckoutPage()">
         <!--Header Bar--> 
         <div class="header">
             <div class="topbargrid">
@@ -164,7 +164,7 @@
         <label>
             <input type="radio" name="material" value="Duck Down"/>
             <img src="down.png" alt="duck down">
-            <p>Cozy Denim</p>
+            <p>Duck Down</p>
         </label>
     </div>
 
@@ -202,6 +202,9 @@
         <input type="submit" value="ADD TO BASKET" id="addtobasketbutton" onclick="addToCart()">
     </div>
     
+    <div class="errorMsg">
+
+    </div>
 
 </div>
 </div>
@@ -209,50 +212,101 @@
 <!--RECOMMENDED PRODUCTS-->    
 <div class="recommended">
     <h4>Recommended Products</h4>
-    <img src="Recommended.svg" alt="recommended products">
+    <div class="prodrow">
+        <div class="prodcolumn">
+            <img src="pinkprod.png">
+            <h5>Square Couch Pillow</h5>
+        </div>
+        <div class="prodcolumn">
+            <img src="longblueprod.png">
+            <h5>Long Couch Pillow</h5>
+        </div>
+        <div class="prodcolumn">
+            <img src="whiteprod.png">
+            <h5>Bundle 2-Pack Couch<br>Pillows</h5>
+        </div>
+        <div class="prodcolumn" id="forwardarrow">
+            <img src="arrow_forward_ios_24px.svg" class="farrowimg" alt="forwardarrow">
+        </div>
+    </div>
+    <div class="prodrow">
+        <div class="prodcolumn"> 
+            <img src = "Colors.svg" alt="colors">
+            <h5>$25</h5>
+        </div>
+        
+        <div class="prodcolumn">
+            <img src = "Colors.svg">
+            <h5>$25</h5>
+        </div>
+        
+        <div class="prodcolumn">
+            <img src = "Colors.svg">
+            <h5>$25</h5>
+        </div>
+        <div class="prodcolumn" id="forwardarrow">
+            <img src="forwardarrow.svg">
+        </div>
+    </div>
 </div>
 
 </div>
+
+
+<!--REVIEWS-->    
 
 <div class="section3">
     <h3 id="customerreviews1">Customer Reviews</h3>
     <div class=stars><img src="Review%20Stars.svg" alt="review stars"></div>
-    <div class="review-group">
-        <img class="review-container" src="Group%20134.jpg" alt="reviews">
-        <div class="title1"><p>So comfortable I can’t<br>stop sitting</p></div>
-        <div class="title2"><p>My family is fighting<br>over these pillows</p></div>
-        <div class="title3"><p>My son ate two of these<br>pillows</p></div>
-        
-        <img class="star1" alt="stars" src="STARS.svg">
-        <img class="star2" alt="stars" src="STARS.svg">
-        <img class="star3" alt="stars" src="STARS.svg">
+    
+    <div class="reviewflex">
 
-        <div class="rev1"><p>I have now been sitting for 72
-            <br>hours straight on these pillows. I
-            <br>eat, sleep, breathe, and live on
-            <br>these pillows.</p></div>
-
-        <div class="rev2"><p>These pillows were so comfortable
-            <br>that my family and friends have
-            <br>begun feuding over them. Things
-            <br>are getting violent, and blood may
-            <br>be spilled. 10/10 worth it</p></div>
-        
-        <div class="rev3"><p>These pillows look and feel like
-            <br>marshmallows. My son has eaten
-            <br>the second one I purchased, and I
-            <br>know he’s eyeing up the third. He
-            <br>is 30 years old.</p></div>
-
-        <div class="person1"><p>Joanna M.</p></div>
-        <div class="person2"><p>Michael S.</p></div>
-        <div class="person3"><p>Sarah J.</p></div>
-
+        <div class="reviewrow">
+            <div class="reviewcolumn">
+                <h5>So comfortable I can’t<br>stop sitting</h5>
+                <img class="star1" alt="stars" src="STARS.svg">
+                <p>I have now been sitting for 72
+                    <br>hours straight on these pillows. I
+                    <br>eat, sleep, breathe, and live on
+                    <br>these pillows.<br><br></p>
+                <div class="reviewer">
+                    <img src="Reviewer.png">
+                    <p>Joanna M.</p>
+                </div>
+            </div>
+            <div class="reviewcolumn">
+                <h5>My family is fighting<br>over these pillows</h5>
+                <img class="star1" alt="stars" src="STARS.svg">
+                <p>These pillows were so comfortable
+                    <br>that my family and friends have
+                    <br>begun feuding over them. Things
+                    <br>are getting violent, and blood may
+                    <br>be spilled. 10/10 worth it</p>
+                <div class="reviewer">
+                    <img src="Reviewer.png">
+                    <p>Michael S.</p>
+                </div>
+            </div>
+            <div class="reviewcolumn">
+                <h5>My son ate two of these<br>pillows</h5>
+                <img class="star1" alt="stars" src="STARS.svg">
+                <p>These pillows look and feel like
+                    <br>marshmallows. My son has eaten
+                    <br>the second one I purchased, and I
+                    <br>know he’s eyeing up the third. He
+                    <br>is 30 years old.</p>
+                <div class="reviewer">
+                    <img src="Reviewer.png">
+                    <p>Sarah J.</p>
+                </div>
+            </div>
+        </div>
     </div>
+
     <div id="loadmore">
         <img src="Load%20More.svg" alt="load more">
     </div>
-    </div>
+ </div>
 
 <!--Footer-->
 <div class="footer">
